@@ -2,9 +2,7 @@ from CraigslistHousingWrapper import CraigslistHousingWrapper
 import json
 
 class Posts(CraigslistHousingWrapper):
-
     housingPosts=[]
-
     def craigslistClient(self): 
         return CraigslistHousingWrapper(site=self.site, 
                                         area=self.area, 
@@ -18,8 +16,11 @@ class Posts(CraigslistHousingWrapper):
 
     def getPosts(self):
         craigslistClient = self.craigslistClient()
-        for result in craigslistClient.get_results(sort_by='newest', geotagged=True, limit=10):
-            self.housingPosts.append(result)
+        for result in craigslistClient.get_results(sort_by='newest', 
+                                                   geotagged=True, 
+                                                   include_details=True, 
+                                                   limit=10):
+            self.housingPosts.append(result)      
         print(json.dumps(self.housingPosts,indent=4))
         return self.housingPosts
 
