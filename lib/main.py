@@ -1,13 +1,26 @@
 from Posts import Posts
-import json
+from DataProcessing import DataProcessing
+from Metrics import Metrics
+
 
 def main():
-    # posts = Posts(site='sfbay',
-    #               area='scz',
-    #               category='apa').getPosts()
-    posts = Posts()
-    posts.countPosts()
-    posts.getPosts()
+
+    # posts = Posts()
+    # posts.getPosts()
+
+    
+    data = DataProcessing()
+    # data.data=posts.housingPosts
+    data.getPostsFromFile()
+    # data.savePostsToFile()
+    data.jsonToPd()
+    data.formatPrice()
+    
+    metrics = Metrics(data.df)
+    metrics.avgPrice()
+    metrics.countPerBedroom()
+    metrics.countPostsPerWhere()
+    
     return 
     
 
