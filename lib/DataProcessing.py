@@ -38,6 +38,16 @@ class DataProcessing():
         for i in lines:
             t.append(json.loads(i))
         self.data = t
-        return t
+        return 
 
-    
+    # Filter on posts ONLY in City of Santa Cruz 
+    # This will change self.pd for the entire instance
+    def filterOnSantaCruz(self):
+        if self.df.empty:
+            print("ERROR: data frame not yet set. Please use the jsonToPd() function")
+        else:
+            sc = self.df[(self.df['where'] == 'santa cruz') | (self.df['where'] =='Santa Cruz santa cruz co ')]
+            self.df = sc
+            print(self.df)
+            return 
+            

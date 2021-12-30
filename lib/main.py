@@ -20,6 +20,13 @@ def main():
     metrics.avgPrice()
     metrics.countPerBedroom()
     metrics.countPostsPerWhere()
+
+    print("------- BELOW THIS LINE IS JUST CITY OF SANTA CRUZ  --------")
+    data.filterOnSantaCruz()
+    metrics = Metrics(data.df)
+    metrics.avgPrice()
+    metrics.countPerBedroom()
+    metrics.countPostsPerWhere()
     
     return 
     
