@@ -5,14 +5,13 @@ from Metrics import Metrics
 
 def main():
 
-    # posts = Posts()
-    # posts.getPosts()
+    posts = Posts()
+    posts.getPosts()
 
-    
     data = DataProcessing()
-    # data.data=posts.housingPosts
-    data.getPostsFromFile()
-    # data.savePostsToFile()
+    data.data=posts.housingPosts
+#     data.getPostsFromFile()
+    data.savePostsToFile()
     data.jsonToPd()
     data.formatPrice()
     
